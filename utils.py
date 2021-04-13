@@ -130,9 +130,9 @@ def plot_portfolio_performance_comparison(stock_name, agent):
 	plt.plot(dates, agent.portfolio_values, color='green', label='{} Total Return: ${:.2f}'.format(agent.model_type, agent_return))
 	plt.plot(dates, buy_and_hold_portfolio_values, color='blue', label='{} Buy and Hold Total Return: ${:.2f}'.format(stock_name, buy_and_hold_return))
 	# compare with S&P 500 performance in 2018
-	if '^GSPC' not in stock_name:
-		dates, GSPC_buy_and_hold_portfolio_values, GSPC_buy_and_hold_return = buy_and_hold_benchmark('^GSPC_2018', agent)
-		plt.plot(dates, GSPC_buy_and_hold_portfolio_values, color='red', label='S&P 500 2018 Buy and Hold Total Return: ${:.2f}'.format(GSPC_buy_and_hold_return))
+	#if '^GSPC' not in stock_name:
+		#dates, GSPC_buy_and_hold_portfolio_values, GSPC_buy_and_hold_return = buy_and_hold_benchmark('^GSPC_2018', agent)
+		#plt.plot(dates, GSPC_buy_and_hold_portfolio_values, color='red', label='S&P 500 2018 Buy and Hold Total Return: ${:.2f}'.format(GSPC_buy_and_hold_return))
 	plt.xticks(np.linspace(0, len(dates), 10))
 	plt.ylabel('Portfolio Value ($)')
 	plt.legend()
@@ -163,16 +163,17 @@ def plot_all(stock_name, agent):
     ax[1].plot(dates, agent.portfolio_values, color='green', label='{} Total Return: ${:.2f}'.format(agent.model_type, agent_return))
     ax[1].plot(dates, buy_and_hold_portfolio_values, color='blue', label='{} Buy and Hold Total Return: ${:.2f}'.format(stock_name, buy_and_hold_return))
     # compare with S&P 500 performance in 2018 if stock is not S&P 500
-    if '^GSPC' not in stock_name:
-    	dates, GSPC_buy_and_hold_portfolio_values, GSPC_buy_and_hold_return = buy_and_hold_benchmark('^GSPC_2018', agent)
-    	ax[1].plot(dates, GSPC_buy_and_hold_portfolio_values, color='red', label='S&P 500 2018 Buy and Hold Total Return: ${:.2f}'.format(GSPC_buy_and_hold_return))
+    #if '^GSPC' not in stock_name:
+    	#dates, GSPC_buy_and_hold_portfolio_values, GSPC_buy_and_hold_return = buy_and_hold_benchmark('^GSPC_2018', agent)
+    	#ax[1].plot(dates, GSPC_buy_and_hold_portfolio_values, color='red', label='S&P 500 2018 Buy and Hold Total Return: ${:.2f}'.format(GSPC_buy_and_hold_return))
     ax[1].set_ylabel('Portfolio Value ($)')
     ax[1].set_xticks(np.linspace(0, len(df), 10))
     ax[1].legend()
     ax[1].grid()
 
     plt.subplots_adjust(hspace=0.5)
-    plt.show()
+    #plt.show()
+    plt.savefig('DQN_DJI_2016.png')
 
 
 def plot_portfolio_returns_across_episodes(model_name, returns_across_episodes):
